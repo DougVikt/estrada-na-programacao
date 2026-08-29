@@ -6,6 +6,12 @@ Este repositório foi criado para ser um ponto de encontro de quem está **come�
 
 O objetivo é simples: **todo mundo que está aprendendo pode enviar seus scripts aqui**. Não importa se o código é pequeno, se tem erro ou se parece "bobo". O importante é praticar, colaborar e evoluir junto.
 
+### OBS:
+```
+LEIA TODA ESSA DOCUMENTAÇÃO , SE NÃO ENTENDEU NADA OU ESTA PERDIDO DE COMO COMEÇAR , ABAIXO ESTARA UM TUTORIAL DO ZERO ATE SEU PRIMEIRO SCRIPT 
+```
+📘 **[Clique aqui para acessar o tutorial do zero ao primeiro script](GUIA_INICIANTE.md)**
+
 ## 🎯 Objetivo do projeto
 
 Este repositório existe para:
@@ -271,7 +277,7 @@ Para enviar qualquer script, você é **obrigado** a:
 2. ✅ Escrever uma mensagem explicando o envio (o `-m "..."` do commit).
 3. ✅ Nunca apagar o código dos colegas. Para ajudar/melhorar, comente e escreva seu código **abaixo do original**.
 
-Sem essas duas coisas, seu código não entra. Combinado? 😄
+Sem essas tres coisas, seu código não entra. Combinado? 😄
 
 ---
 
