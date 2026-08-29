@@ -10,7 +10,9 @@ O objetivo é simples: **todo mundo que está aprendendo pode enviar seus script
 
 ### OBS:
 ```
-LEIA TODA ESSA DOCUMENTAÇÃO , SE NÃO ENTENDEU NADA OU ESTA PERDIDO DE COMO COMEÇAR , ABAIXO ESTARA UM TUTORIAL DO ZERO ATE SEU PRIMEIRO SCRIPT 
+LEIA TODA ESSA DOCUMENTAÇÃO , 
+SE NÃO ENTENDEU NADA OU ESTA PERDIDO DE COMO COMEÇAR , 
+ABAIXO ESTARA UM TUTORIAL DO ZERO ATE SEU PRIMEIRO SCRIPT 
 ```
 📘 **[Clique aqui para acessar o tutorial do zero ao primeiro script](GUIA_INICIANTE.md)**
 
