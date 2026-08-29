@@ -1,5 +1,7 @@
 # 🚀 Estrada na Programação
 
+![Banner do projeto](imagem.jpg)
+
 Bem-vindo(a) ao **Estrada na Programação**!
 
 Este repositório foi criado para ser um ponto de encontro de quem está **começando agora** na programação e participa do curso de programação da Cruzeiro. Aqui você vai guardar, compartilhar e aprender olhando o código dos colegas.
