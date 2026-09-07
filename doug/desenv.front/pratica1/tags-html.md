@@ -174,6 +174,14 @@
         : cria um formulário para coletar dados do usuário 
     </form>
 
+    <fieldset>
+        : estrutura um bloco com borda fina em torno do questionario , ajuda a acessibilidade informando que tudo dentro dele pertence ao mesmo contexto
+    <\fieldset>
+
+    <legend>
+        : texto que serve como titulo do bloco do <fieldset>
+    </legend>
+
     <input>
         : cria um campo de entrada de dados, como um campo de texto ou um botão de envio 
 
