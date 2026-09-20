@@ -1,0 +1,454 @@
+/* ==========================================================================
+   1. DESIGN SYSTEM: VARIÁVEIS TÉCNICAS (CONTRATO VISUAL)
+   ========================================================================== */
+:root {
+  /* Cores Primárias: Transmitir acolhimento, esperança e ação (WCAG AA) */
+  --color-primary-pure: #1A5F7A;       /* Azul Profundo: Credibilidade e contraste */
+  --color-primary-light: #57C5B6;      /* Verde-Água: Renovação */
+  --color-primary-dark: #002B5B;       /* Azul Escuro: Textos estruturais */
+
+  /* Cores Secundárias: Foco em chamadas de ação (Doações/Voluntariado) */
+  --color-secondary-pure: #E57C23;     /* Laranja: Energia e engajamento */
+  --color-secondary-light: #F8F1F1;    /* Fundo suave para destaques */
+
+  /* Tons Neutros: Leitura limpa e descanso visual */
+  --color-neutral-darkest: #1A1A1A;    /* Quase Preto: Reduz fadiga visual */
+  --color-neutral-medium: #737373;     /* Cinza Médio: Bordas e textos secundários */
+  --color-neutral-lightest: #F9F9F9;   /* Off-White: Fundo principal anti-ofuscamento */
+
+  /* Semântica de Validação e Feedback */
+  --color-success: #2E7D32;
+  --color-error: #D32F2F;
+
+  /* Escala Tipográfica (Base: 16px / 1rem) */
+  --font-size-xs: 0.875rem;            /* 14px - Legendas e metadados */
+  --font-size-sm: 1.000rem;            /* 16px - Texto do corpo principal */
+  --font-size-md: 1.250rem;            /* 20px - Subtítulos e destaques */
+  --font-size-lg: 1.750rem;            /* 28px - Títulos secundários (H2) */
+  --font-size-xl: 2.500rem;            /* 40px - Título principal (H1) */
+
+  /* Espaçamento Modular (Base: Multiplicador de 8px) */
+  --spacing-xs: 0.50rem;               /* 8px   - Gaps e paddings pequenos */
+  --spacing-sm: 1.00rem;               /* 16px  - Margens padrão */
+  --spacing-md: 1.50rem;               /* 24px  - Padding interno de containers */
+  --spacing-lg: 2.00rem;               /* 32px  - Respiro entre seções */
+  --spacing-xl: 4.00rem;               /* 64px  - Grandes blocos (Hero/Rodapé) */
+}
+
+/* Reset de Acessibilidade */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--color-neutral-lightest);
+  color: var(--color-neutral-darkest);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   2. ARQUITETURA MACROSCÓPICA: GRID DE 12 COLUNAS (MOBILE-FIRST)
+   ========================================================================== */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Fluxo Vertical Padrão para Telas Pequenas (Mobile) */
+.header, .hero, .section-content, .form-container, .footer {
+  grid-column: span 12;
+}
+
+/* 1. BREAKPOINT: SMARTPHONES EM LANDSCAPE (≥ 576px) */
+@media (min-width: 576px) {
+  .grid-container { max-width: 540px; gap: var(--spacing-md); }
+}
+
+/* 2. BREAKPOINT: TABLETS EM PORTRAIT (≥ 768px) */
+@media (min-width: 768px) {
+  .grid-container { max-width: 720px; }
+}
+
+/* 3. BREAKPOINT: TABLETS EM LANDSCAPE / LAPTOPS (≥ 992px) */
+@media (min-width: 992px) {
+  .grid-container { max-width: 960px; padding: var(--spacing-md); }
+  
+  /* Distribuição Macroscópica da Página Institucional */
+  .hero { grid-column: span 12; }
+  .section-content { grid-column: span 6; } /* Divide as seções lado a lado */
+  
+  /* Distribuição do Formulário de Cadastro */
+  .form-group-half { grid-column: span 6; } /* Inputs divididos em 2 colunas */
+}
+
+/* 4. BREAKPOINT: DESKTOPS PADRÃO (≥ 1200px) */
+@media (min-width: 1200px) {
+  .grid-container { max-width: 1140px; gap: var(--spacing-lg); }
+}
+
+/* 5. BREAKPOINT: DESKTOPS PANORÂMICOS (≥ 1400px) */
+@media (min-width: 1400px) {
+  .grid-container { max-width: 1320px; }
+}
+
+/* ==========================================================================
+   3. ELEMENTOS MICROSCÓPICOS (FLEXBOX): NAVEGAÇÃO & HAMBÚRGUER
+   ========================================================================== */
+.header {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  width: 100%;
+}
+
+.logo {
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  color: var(--color-primary-dark);
+}
+
+/* Lógica do Menu Hambúrguer (Sem JavaScript - Checkbox Hack) */
+.menu-toggle-input {
+  display: none;
+}
+
+.menu-toggle-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+}
+
+.nav-list {
+  display: none; /* Oculto por padrão no mobile */
+  list-style: none;
+}
+
+/* Estado Ativado do Menu Mobile */
+.menu-toggle-input:checked ~ .nav-list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: var(--spacing-sm);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 10;
+  gap: var(--spacing-sm);
+}
+
+/* Comportamento de Dropdown / Links no Mobile */
+.nav-item { position: relative; }
+.nav-link {
+  text-decoration: none;
+  color: var(--color-neutral-darkest);
+  font-weight: 500;
+  padding: var(--spacing-xs) 0;
+  display: block;
+}
+
+/* Dropdown Oculto por padrão */
+.dropdown-menu {
+  display: none;
+  list-style: none;
+  padding-left: var(--spacing-sm);
+}
+
+/* Transição do Menu para Telas Grandes (≥ 992px) */
+@media (min-width: 992px) {
+  .menu-toggle-label { display: none; }
+  
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-md);
+  }
+
+  /* Lógica de Dropdown de Resolução Extensa */
+  .nav-item:hover .dropdown-menu,
+  .nav-item:focus-within .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-width: 180px;
+    padding: var(--spacing-xs);
+    border-radius: 4px;
+    z-index: 20;
+  }
+}
+
+/* ==========================================================================
+   4. COMPONENTES: FORMULÁRIO DE CADASTRO (ESTADOS E VALIDAÇÃO VISUAL)
+   ========================================================================== */
+.form-container {
+  background: #FFFFFF;
+  padding: var(--spacing-lg);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.form-title {
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--color-primary-light);
+  padding-bottom: var(--spacing-xs);
+}
+
+.form-section-title {
+  color: var(--color-primary-pure);
+  font-size: var(--font-size-md);
+  grid-column: span 12;
+  margin: var(--spacing-sm) 0 var(--spacing-xs) 0;
+}
+
+.form-group {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--color-neutral-darkest);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-neutral-medium);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  background-color: #FFFFFF;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ESTADOS INTERATIVOS DOS INPUTS */
+.form-input:focus {
+  border-color: var(--color-primary-pure);
+  box-shadow: 0 0 0 3px rgba(26, 95, 122, 0.2);
+  outline: none;
+}
+
+/* SINALIZAÇÃO VISUAL DE VALIDAÇÃO (Sucesso / Erro pós-interação) */
+.form-input:user-valid {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.form-input:user-invalid {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+/* ==========================================================================
+   5. COMPONENTES: BOTÕES (CONVENÇÕES DE INTERATIVIDADE)
+   ========================================================================== */
+.btn-submit {
+  grid-column: span 12;
+  background-color: var(--color-secondary-pure);
+  color: #FFFFFF;
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+  padding: 14px var(--spacing-md);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+/* Estados do Botão */
+.btn-submit:hover {
+  background-color: #D46A13; /* Tom Laranja Escuro */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-submit:focus-visible {
+  outline: 3px solid var(--color-primary-pure);
+  outline-offset: 2px;
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.btn-submit:disabled {
+  background-color: var(--color-neutral-medium);
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   6. SEÇÕES DE CONTEÚDO INSTITUCIONAL (LEITURA E ACESSIBILIDADE)
+   ========================================================================== */
+.hero {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(135deg, #FFFFFF, var(--color-secondary-light));
+  border-radius: 8px;
+  margin-bottom: var(--spacing-md);
+}
+
+.hero h1 {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero-img-substitute {
+  font-style: italic;
+  color: var(--color-neutral-medium);
+  margin-top: var(--spacing-sm);
+}
+
+.section-title {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-list, .social-list {
+  list-style: none;
+  margin-top: var(--spacing-xs);
+}
+
+.contact-list li, .social-list li {
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   7. COMPONENTE MICROFLEX: RODAPÉ (FOOTER RESPONSIVO)
+   ========================================================================== */
+.footer {
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg) 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  text-align: center;
+}
+
+.footer-text {
+  font-size: var(--font-size-xs);
+  opacity: 0.8;
+}
+
+/* Ajuste Responsivo do Rodapé para Linha Única em Desktops */
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+}
+
+
+/* ==========================================================================
+   9. ESTILIZAÇÃO MOCK DOS COMPONENTES DE FEEDBACK (PARA CAPTURA DE TELA)
+   ========================================================================== */
+
+/* Caixas de Alerta (Alerts) */
+.alert {
+  grid-column: span 12;
+  padding: var(--spacing-sm);
+  border-radius: 4px;
+  border-left: 4px solid transparent;
+  margin-bottom: var(--spacing-sm);
+}
+.alert-success {
+  background-color: #E8F5E9; /* Fundo verde claro */
+  border-left-color: var(--color-success);
+  color: #1B5E20;
+}
+.alert-error {
+  background-color: #FFEBEE; /* Fundo vermelho claro */
+  border-left-color: var(--color-error);
+  color: #C62828;
+}
+
+/* Etiquetas de Categorização (Badges) */
+.badge-group {
+  grid-column: span 12;
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+.badge {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.badge-urgent { background-color: var(--color-secondary-pure); color: #FFFFFF; }
+.badge-success { background-color: #2E7D32; color: #FFFFFF; }
+
+/* Apresentação do Modal Simulada (Fundo escurecido e caixa flutuante) */
+.modal-backdrop-mock {
+  grid-column: span 12;
+  background-color: rgba(0, 0, 0, 0.4); /* Escurece o fundo da página */
+  padding: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-top: var(--spacing-md);
+}
+.modal-box {
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.modal-header {
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  padding: var(--spacing-sm);
+  font-weight: bold;
+}
+.modal-body {
+  padding: var(--spacing-md);
+}
+.modal-footer {
+  background-color: var(--color-neutral-lightest);
+  padding: var(--spacing-sm);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  border-top: 1px solid #E0E0E0;
+}

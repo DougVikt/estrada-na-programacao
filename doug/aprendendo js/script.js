@@ -88,3 +88,34 @@ VALOR TOTAL : R$ ${compraProduto},00
 `
 );
 
+console.log("-------------------------------------");
+/*
+## Bloco 2 — Tipos de dados
+*/
+// 6. Cria uma variável de cada tipo primitivo: string, number, boolean, undefined, null, bigint e symbol. Apresenta o tipo de cada uma.
+let = var1= "" , var2 = 1 ,var3 = true , var5 = null , var4;
+console.log(`
+var1 = ${typeof var1} ,
+var2 = ${typeof var2} ,
+var3 = ${typeof var3} ,
+var4 = ${typeof var4} ,
+var5 = ${typeof var5} 
+       `)
+
+console.log("-------------------------------------");
+
+// 7. Cria uma variável `estaChovendo` com um valor booleano e apresenta uma mensagem diferente para `true` e `false`.
+let estaChovendo = true , resposta="";
+if(estaChovendo){
+       resposta = "Eita que toro ta caindo em !!";
+}else{
+       resposta = "Tava nublado , pensei que ia chover , mas so foi o empressão";
+}
+
+
+console.log("-------------------------------------");
+// 8. Cria uma variável sem valor atribuído e verifica, através de código, se o seu valor é `undefined`.
+
+
+// 9. Cria um array com três nomes e um objeto que represente uma pessoa. Apresenta os tipos de dados dessas estruturas.
+// 10. Cria uma variável com o valor `null` e escreve uma condição que verifique se ela está vazia.

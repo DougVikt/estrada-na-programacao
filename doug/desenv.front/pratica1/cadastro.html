@@ -1,77 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuário</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuário - Nome da ONG</title>
+  <link class="styles" rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main>
-        <h1>Formulário de Cadastro</h1>
-        
-        <form action="/enviar-cadastro" method="POST">
+  <!-- CABEÇALHO REPLICADO -->
+  <header class="header">
+    <div class="grid-container">
+      <nav class="header-nav" aria-label="Navegação Principal">
+        <div class="logo">Nome da ONG</div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+        <label for="menu-toggle" class="menu-toggle-label" aria-label="Abrir Menu de Navegação">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </label>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Quem Somos</a>
+            <ul class="dropdown-menu">
+              <li><a href="#" class="nav-link">Nossa Missão</a></li>
+              <li><a href="#" class="nav-link">Como Atuamos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="cadastro.html" class="nav-link" aria-current="page">Cadastre-se</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Política de Privacidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-            <!-- Agrupamento 1: Dados de Identificação Pessoal -->
-            <fieldset>
-                <legend>Dados Pessoais</legend>
-                
-                <p>
-                    <label for="nome-completo">Nome Completo:</label>
-                    <input type="text" id="nome-completo" name="nome_completo" required autocomplete="name">
-                </p>
-                
-                <p>
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" required autocomplete="email">
-                </p>
-                
-                <p>
-                    <label for="data-nascimento">Data de Nascimento:</label>
-                    <input type="date" id="data-nascimento" name="data_nascimento" required>
-                </p>
-                <p>
-                    <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" maxlength="14" placeholder="000.000.000-00" required>
-                </p>
-                <p>
-                    <label for="fone">Numero telefonico:</label>
-                    <input type="text" id="fone" name="fone" pattern="\(\d{2}\)\s\d{5}-\d{4}" maxlength="15" minlength="15" placeholder="(xx) 9xxxx-xxxx" required>
-                </p>
-            </fieldset>
+  <!-- FORMULÁRIO EM MALHA GRID RESPONSIVA -->
+  <main class="grid-container">
+    
+    <form class="form-container grid-container" action="#" method="POST" novalidate>
+      <h1 class="form-title">Cadastro de Usuário</h1>
 
-            <!-- Agrupamento 2: Dados de Localização e Entrega -->
-            <fieldset>
-                <legend>Endereço de Residência</legend>
-                
-                <p>
-                    <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep" pattern="\d{5}-\d{3}" maxlength="9" placeholder="00000-000" required>
-                </p>
-                <p>
-                    <label for="endereco">Logradouro (Rua, Av.):</label>
-                    <input type="text" id="endereco" name="endereco" required autocomplete="street-address">
-                </p>
-                
-                <p>
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" id="cidade" name="cidade" required>
-                </p>
-                
-                <p>
-                    <label for="estado">Estado (UF):</label>
-                    <input type="text" id="estado" name="estado" required maxlength="2" pattern="[A-Z]{2}" title="Insira a sigla do estado com duas letras maiúsculas (ex: SP)">
-                </p>
-            </fieldset>
+      <!-- BLOCO: DADOS PESSOAIS -->
+      <h2 class="form-section-title">Dados Pessoais</h2>
 
-            <!-- Botão de envio -->
-            <p>
-                <button type="submit">Finalizar Cadastro</button>
-            </p>
+      <div class="form-group">
+        <label class="form-label" class="form-label" for="nome">Nome Completo:</label>
+        <input class="form-input" type="text" id="nome" name="nome" required minlength="3" placeholder="Digite seu nome completo">
+      </div>
 
-        </form>
-    </main>
+      <div class="form-group form-group-half">
+        <label class="form-label" for="email">E-mail:</label>
+        <input class="form-input" type="email" id="email" name="email" required placeholder="exemplo@ong.org">
+      </div>
+
+      <div class="form-group form-group-half">
+        <label class="form-label" for="nascimento">Data de Nascimento:</label>
+        <input class="form-input" type="date" id="nascimento" name="nascimento" required>
+      </div>
+
+      <div class="form-group form-group-half">
+        <label class="form-label" for="cpf">CPF:</label>
+        <input class="form-input" type="text" id="cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00">
+      </div>
+
+      <div class="form-group form-group-half">
+        <label class="form-label" for="telefone">Número telefônico:</label>
+        <input class="form-input" type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+      </div>
+
+      <!-- BLOCO: ENDEREÇO -->
+      <h2 class="form-section-title">Endereço de Residência</h2>
+
+      <div class="form-group form-group-half">
+        <label class="form-label" for="cep">CEP:</label>
+        <input class="form-input" type="text" id="cep" name="cep" required pattern="\d{5}-\d{3}" placeholder="00000-000">
+      </div>
+
+      <div class="form-group form-group-half">
+        <label class="form-label" for="logradouro">Logradouro (Rua, Av.):</label>
+        <input class="form-input" type="text" id="logradouro" name="logradouro" required placeholder="Rua, Avenida, Travessa...">
+      </div>
+
+      <div class="form-group form-group-half">
+        <label class="form-label" for="cidade">Cidade:</label>
+        <input class="form-input" type="text" id="cidade" name="cidade" required placeholder="Sua cidade">
+      </div>
+
+      <div class="form-group form-group-half">
+        <label class="form-label" for="estado">Estado (UF):</label>
+        <input class="form-input" type="text" id="estado" name="estado" required maxlength="2" placeholder="Ex: RN">
+      </div>
+
+      <!-- BOTÃO DE SUBMISSÃO -->
+      <button class="btn-submit" type="submit">Finalizar Cadastro</button>
+    </form>
+
+  </main>
+
+  <!-- RODAPÉ REPLICADO -->
+  <footer class="footer">
+    <div class="grid-container">
+      <div class="footer-container">
+        <p class="footer-text">&copy; 2026 Nome da ONG. Todos os direitos reservados.</p>
+        <p class="footer-text">Desenvolvido com foco em acessibilidade.</p>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
-
