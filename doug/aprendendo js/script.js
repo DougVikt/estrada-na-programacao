@@ -93,7 +93,7 @@ console.log("-------------------------------------");
 ## Bloco 2 — Tipos de dados
 */
 // 6. Cria uma variável de cada tipo primitivo: string, number, boolean, undefined, null, bigint e symbol. Apresenta o tipo de cada uma.
-let = var1= "" , var2 = 1 ,var3 = true , var5 = null , var4;
+let = var1= "" , var2 = 1 ,var3 = true , var5 = null , var4 = null;
 console.log(`
 var1 = ${typeof var1} ,
 var2 = ${typeof var2} ,
@@ -117,5 +117,9 @@ console.log("-------------------------------------");
 // 8. Cria uma variável sem valor atribuído e verifica, através de código, se o seu valor é `undefined`.
 
 
+
 // 9. Cria um array com três nomes e um objeto que represente uma pessoa. Apresenta os tipos de dados dessas estruturas.
+
+
+
 // 10. Cria uma variável com o valor `null` e escreve uma condição que verifique se ela está vazia.

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Usuário - Nome da ONG</title>
-  <link class="styles" rel="stylesheet" href="style.css">
+  <link class="styles" rel="stylesheet" href="./pratica2/style.css">
 </head>
 <body>
 
@@ -18,17 +18,17 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </label>
         <ul class="nav-list">
-          <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+          <li class="nav-item"><a href="index.html" data-route="home" class="nav-link">Início</a></li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Quem Somos</a>
+            <a href="#" data-route="home" class="nav-link">Quem Somos</a>
             <ul class="dropdown-menu">
-              <li><a href="#" class="nav-link">Nossa Missão</a></li>
-              <li><a href="#" class="nav-link">Como Atuamos</a></li>
+              <li><a href="#" data-route="home" class="nav-link">Nossa Missão</a></li>
+              <li><a href="#" data-route="home" class="nav-link">Como Atuamos</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="cadastro.html" class="nav-link" aria-current="page">Cadastre-se</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Política de Privacidade</a></li>
+          <li class="nav-item"><a href="cadastro.html" data-route="cadastro" class="nav-link" aria-current="page">Cadastre-se</a></li>
+          <li class="nav-item"><a href="#" data-route="home" class="nav-link">Contato</a></li>
+          <li class="nav-item"><a href="#" data-route="404" class="nav-link">Política de Privacidade</a></li>
         </ul>
       </nav>
     </div>
@@ -37,14 +37,14 @@
   <!-- FORMULÁRIO EM MALHA GRID RESPONSIVA -->
   <main class="grid-container">
     
-    <form class="form-container grid-container" action="#" method="POST" novalidate>
+    <form id="form-cadastro" class="form-container grid-container" action="#" method="POST" novalidate>
       <h1 class="form-title">Cadastro de Usuário</h1>
 
       <!-- BLOCO: DADOS PESSOAIS -->
       <h2 class="form-section-title">Dados Pessoais</h2>
 
       <div class="form-group">
-        <label class="form-label" class="form-label" for="nome">Nome Completo:</label>
+        <label class="form-label" for="nome">Nome Completo:</label>
         <input class="form-input" type="text" id="nome" name="nome" required minlength="3" placeholder="Digite seu nome completo">
       </div>
 
@@ -106,6 +106,9 @@
       </div>
     </div>
   </footer>
+
+  <script src="https://unpkg.com/imask"></script>
+  <script type="module" src="./pratica3/main.js"></script>
 
 </body>
 </html>

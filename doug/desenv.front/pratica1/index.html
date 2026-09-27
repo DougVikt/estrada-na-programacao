@@ -22,18 +22,18 @@
         </label>
 
         <ul class="nav-list">
-          <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page">Início</a></li>
+          <li class="nav-item"><a href="index.html" data-route="home" class="nav-link" aria-current="page">Início</a></li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Quem Somos</a>
+            <a href="#" data-route="home" class="nav-link">Quem Somos</a>
             <!-- Submenu Dropdown Requisitado -->
             <ul class="dropdown-menu">
-              <li><a href="#" class="nav-link">Nossa Missão</a></li>
-              <li><a href="#" class="nav-link">Como Atuamos</a></li>
+              <li><a href="#" data-route="home" class="nav-link">Nossa Missão</a></li>
+              <li><a href="#" data-route="home" class="nav-link">Como Atuamos</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="cadastro.html" class="nav-link">Cadastre-se</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Política de Privacidade</a></li>
+          <li class="nav-item"><a href="cadastro.html" data-route="cadastro" class="nav-link">Cadastre-se</a></li>
+          <li class="nav-item"><a href="#" data-route="home" class="nav-link">Contato</a></li>
+          <li class="nav-item"><a href="#" data-route="404" class="nav-link">Política de Privacidade</a></li>
         </ul>
       </nav>
     </div>
@@ -46,6 +46,18 @@
     <section class="hero">
       <h1>Transformando Vidas: Conheça a Nossa ONG</h1>
       <p class="hero-img-substitute">[Imagem: Voluntários sorridentes ajudando pessoas da comunidade.]</p>
+    </section>
+      
+    <!-- Seção Institucional que abrigará os componentes repetitivos -->
+    <section class="section-content" style="grid-column: span 12;">
+      <h2 class="section-title">Nossos Projetos Ativos</h2>
+      <p>Conheça as causas apoiadas pela nossa organização e saiba como fazer a diferença.</p>
+
+      <!-- CONTAINER ALVO (ID correspondente ao selecionado no JavaScript) -->
+      <!-- Este bloco começa vazio no HTML e é alimentado automaticamente pelo DOM -->
+      <div id="projetos-container" class="grid-container" style="padding: var(--spacing-sm) 0;">
+        <!-- O JavaScript injetará os elementos <article class="project-card"> aqui dentro -->
+      </div>
     </section>
 
     <!-- Seção: Nossa Missão -->
@@ -80,6 +92,13 @@
       </ul>
     </section>
 
+    <!-- Viewport SPA (demonstração/testes: #/home, #/cadastro, #/rota-inexistente) -->
+    <section class="section-content" style="grid-column: span 12;">
+      <h2 class="section-title">Navegação SPA (demonstração)</h2>
+      <p>Viewport usada pelos testes de roteamento. Links do menu com <code>data-route</code> renderizam aqui sem reload.</p>
+      <div id="main-view" data-testid="main-view" style="width: 100%;"></div>
+    </section>
+
   </main>
 
   <!-- RODAPÉ COMPARTILHADO (MICROFLEX RESPONSIVO) -->
@@ -91,6 +110,8 @@
       </div>
     </div>
   </footer>
+  <script src="https://unpkg.com/imask"></script>
+  <script type="module" src="./pratica3/main.js"></script>
 
 </body>
 </html>
